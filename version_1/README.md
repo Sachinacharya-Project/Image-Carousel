@@ -2,4 +2,4 @@
 ______________
 Image Carousel made using HTML, CSS, and JavaScript
 
-[Linear Crousel](../version_2/)
+[Version 2](../version_2/)
