@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: rgb(1, 1, 17);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.carousel{
+    height: 700px;
+    perspective: 400px;
+    transform: translateY(-100px);
+
+    .carousel-item{
+        transform: translateY(-20px);
+        width: 500px;
+        cursor: grab;
+        img {
+            border-radius: 10px;
+        }
+
+        &:active {
+            cursor: grabbing;
+        }
+    }
+}
+
+.preloader {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: rgb(4, 1, 17);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: 0.5s all linear;
+
+    h2  {
+        color: white;
+        font-weight: bolder;
+        font-family: system-ui;
+        margin-top: -100px;
+    }
+
+    .bar {
+        width: 400px;
+        height: 3px;
+        background-color: rgb(39, 39, 43);
+        position: relative;
+
+        .juice {
+            width: 50px;
+            height: 100%;
+            background-color: rgb(153, 0, 0);
+            position: absolute;
+            animation: run 1s ease-in-out alternate infinite;
+        }
+    }
+
+    &.active {
+        opacity: 0;
+        z-index: 0;
+        transform: scale(0);
+        transform-origin: center;
+        pointer-events: none;
+    }
+}
+
+@keyframes run {
+    from {
+        left: 0;
+    } to {
+        left: calc(100% - 50px);
+    }
+}
